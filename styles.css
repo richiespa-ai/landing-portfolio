@@ -1,14 +1,29 @@
+:root {
+  /* Colores */
+  --fondo: #f1f3f6; /* fondo de la página */
+  --superficie: #ffffff; /* tarjetas y cabecera */
+  --texto: #141a24; /* texto principal */
+  --texto-suave: #475264; /* texto secundario */
+  --borde: #dde2e9; /* líneas y bordes */
+  --acento: #1d4ed8; /* botones y cifras */
+  --acento-hover: #1e3a8a; /* acento al pasar el ratón */
+  --ok-fondo: #e3f4ea; /* etiqueta "Disponible" */
+  --ok-texto: #14532d;
+
+  /* Tipografías */
+  --fuente-texto: "IBM Plex Sans", system-ui, sans-serif;
+  --fuente-cifras: "IBM Plex Mono", monospace;
+
+  /* Esquinas */
+  --radio-tarjeta: 12px;
+  --radio-boton: 6px;
+}
 body {
-  font-family:
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    Roboto,
-    sans-serif;
+  font-family: var(--fuente-texto);
+  color: var(--texto);
+  background: var(--fondo);
   line-height: 1.6;
-  max-width: 70ch;
-  margin: 0 auto;
-  padding: 0 16px;
+  margin: 0;
 }
 
 img {
@@ -20,7 +35,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 24px;
+  padding: 16px max(24px, calc((100% - 1120px) / 2 + 24px));
+  background: var(--superficie);
+  border-bottom: 1px solid var(--borde);
 }
 nav {
   display: flex;
@@ -49,4 +66,107 @@ nav {
 .trayectoria {
   list-style: none;
   padding: 0;
+}
+
+main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+box-sizing: border-box;
+
+header a {
+  color: var(--texto-suave);
+  text-decoration: none;
+}
+header a:hover {
+  color: var(--acento);
+}
+header > a {
+  font-weight: 700;
+  color: var(--texto);
+}
+
+nav {
+  align-items: center;
+}
+
+.boton {
+  background: var(--acento);
+  color: var(--superficie);
+  padding: 10px 18px;
+  border-radius: var(--radio-boton);
+  font-weight: 600;
+}
+.boton:hover {
+  background: var(--acento-hover);
+  color: var(--superficie);
+}
+
+.hero {
+  padding: 80px 0 64px;
+}
+.hero h1 {
+  font-size: clamp(36px, 6vw, 60px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 900px;
+  margin: 20px 0;
+}
+.hero-sub {
+  font-size: 19px;
+  color: var(--texto-suave);
+  max-width: 720px;
+}
+
+.etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.etiqueta {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  color: var(--texto-suave);
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+.etiqueta--ok {
+  background: var(--ok-fondo);
+  border-color: var(--ok-fondo);
+  color: var(--ok-texto);
+  font-weight: 600;
+}
+.etiqueta--ok::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #16a34a;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+.acciones a {
+  text-decoration: none;
+  font-size: 16px;
+  padding: 14px 24px;
+}
+.boton-secundario {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  color: var(--texto);
+  border-radius: var(--radio-boton);
+  font-weight: 600;
+}
+.boton-secundario:hover {
+  border-color: var(--acento);
+  color: var(--acento);
 }
